@@ -1,14 +1,8 @@
-
 package tienda.demo.domain;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
 import lombok.Data;
-
-/**
- *
- * @author Jonathan
- */
 
 @Data
 @Entity
@@ -32,7 +26,4 @@ public class Categoria implements Serializable {
         this.descripcion = categoria;
         this.activo = activo;
     }
-    
-    
-    
-}//final de la clase
+}

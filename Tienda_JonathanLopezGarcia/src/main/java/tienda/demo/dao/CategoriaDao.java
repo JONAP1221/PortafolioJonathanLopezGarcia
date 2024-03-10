@@ -1,16 +1,8 @@
-
 package tienda.demo.dao;
 
 import tienda.demo.domain.Categoria;
-import org.springframework.data.jpa.repository.JpaRepository;//comunicacion de hibernate
+import org.springframework.data.jpa.repository.JpaRepository;
 
-/**
- *
- * @author Jonathan
- */
-public interface CategoriaDao extends JpaRepository<Categoria, Long>{
-    //cualquier clase que implemente esta interfaz tiene que implementar Jpa, recibiendo un objeto
+public interface CategoriaDao extends JpaRepository <Categoria,Long> {
     
-    
-    
-}//final de la clase
+}
