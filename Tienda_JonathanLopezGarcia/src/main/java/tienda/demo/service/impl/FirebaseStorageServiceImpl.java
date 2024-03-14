@@ -1,4 +1,3 @@
-
 package tienda.demo.service.impl;
 
 import com.google.auth.Credentials;
@@ -18,10 +17,7 @@ import java.util.concurrent.TimeUnit;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-/**
- *
- * @author Jonathan
- */
+
 @Service
 public class FirebaseStorageServiceImpl implements FirebaseStorageService {
     @Override
