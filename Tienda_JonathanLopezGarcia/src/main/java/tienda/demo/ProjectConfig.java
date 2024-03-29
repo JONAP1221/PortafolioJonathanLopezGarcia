@@ -68,39 +68,38 @@ public class ProjectConfig implements WebMvcConfigurer{
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/registro/nuevo").setViewName("/registro/nuevo");
  }
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .authorizeHttpRequests((request) -> request
-                .requestMatchers("/","/index","/errores/**",
-                        "/carrito/**","/pruebas/**","/reportes/**",
-                        "/registro/**","/js/**","/webjars/**")
-                        .permitAll()
-                .requestMatchers(
-                        "/producto/nuevo","/producto/guardar",
-                        "/producto/modificar/**","/producto/eliminar/**",
-                        "/categoria/nuevo","/categoria/guardar",
-                        "/categoria/modificar/**","/categoria/eliminar/**",
-                        "/usuario/nuevo","/usuario/guardar",
-                        "/usuario/modificar/**","/usuario/eliminar/**",
-                        "/reportes/**","/registro/fragmentos", "/registro/nuevo"
-                        , "/registro/recordar", "/registro/salida", "/registro/activa"
-                ).hasRole("ADMIN")
-                .requestMatchers(
-                        "/producto/listado",
-                        "/categoria/listado",
-                        "/categoria/fragmentos",
-                        "/usuario/listado",
-                        "/registro/activa"
-                ).hasAnyRole("ADMIN", "VENDEDOR")
-                .requestMatchers("/facturar/carrito")
-                .hasRole("USER")
-                )
-                .formLogin((form) -> form
-                .loginPage("/login").permitAll())
-                .logout((logout) -> logout.permitAll());
-        return http.build();
-    }
+@Bean
+public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    http
+        .authorizeHttpRequests((request) -> request
+            .requestMatchers("/", "/index", "/errores/**",
+                    "/carrito/**", "/pruebas/**", "/reportes/**",
+                    "/registro/**", "/js/**", "/webjars/**")
+                    .permitAll()
+            .requestMatchers(
+                    "/producto/nuevo", "/producto/guardar",
+                    "/producto/modificar/**", "/producto/eliminar/**",
+                    "/categoria/nuevo", "/categoria/guardar",
+                    "/categoria/modificar/**", "/categoria/eliminar/**",
+                    "/usuario/nuevo", "/usuario/guardar",
+                    "/usuario/modificar/**", "/usuario/eliminar/**",
+                    "/reportes/**"
+            ).hasRole("ADMIN")
+            .requestMatchers(
+                    "/producto/listado",
+                    "/categoria/listado",
+                    "/categoria/fragmentos",
+                    "/usuario/listado",
+                    "/registro/activa"
+            ).hasAnyRole("ADMIN", "VENDEDOR")
+            .requestMatchers("/facturar/carrito")
+            .hasRole("USER")
+        )
+        .formLogin((form) -> form
+            .loginPage("/login").permitAll())
+        .logout((logout) -> logout.permitAll());
+    return http.build();
+}
 
 /* El siguiente método se utiliza para completar la clase no es 
     realmente funcional, la próxima semana se reemplaza con usuarios de BD    
