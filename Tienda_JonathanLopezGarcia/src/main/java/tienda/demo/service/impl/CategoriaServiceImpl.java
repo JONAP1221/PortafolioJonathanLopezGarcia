@@ -1,6 +1,4 @@
-
 package tienda.demo.service.impl;
-
 
 import tienda.demo.dao.CategoriaDao;
 import tienda.demo.domain.Categoria;
